@@ -12,7 +12,7 @@ console.log('\nhigher order functions\n'.toUpperCase());
 // Подсказка: secondFunc должна быть представлена функцией, которая принимает
 //  один аргумент (каждый элемент массива) и возвращает результат его обработки
 function convertArrayToString(array, handler) {
-    if (!array.length) return '1. ERROR! Invalid data input - please enter an array';
+    if (!Array.isArray(array) || !array.length) return '1. ERROR! Invalid data input - please enter an array';
 
     let string = '';
     array.forEach(function (elem) {
@@ -67,7 +67,7 @@ console.log(convertArrayToString(['abc', '123'], handler4));
 // 2. Написать аналог метода every. Создайте функцию every, она должна принимать первым аргументом массив чисел (обязательно проверьте что передан массив) вторым аргументом callback
 // функция должна возвращать true или false в зависимости от результата вызова callback (проверить число больше 5). Callback  должен принимать один элемент массива, его индекс в массиве и весь массив.
 function every(array, callback) {
-    if (!array.length) return 'ERROR! Invalid data input - please enter an array of numbers';
+    if (!Array.isArray(array) || !array.length) return 'ERROR! Invalid data input - please enter an array of numbers';
 
     for (let i = 0; i < array.length; i++) {
         if (!callback(array[i], i, array)) return false;
@@ -88,7 +88,7 @@ console.log('\niteration methods\n'.toUpperCase());
 // каждый элемент которого будет хранить информацию о числе и его четности:
 // [{digit: 1, odd: true}, {digit: 2, odd: false}, {digit: 3, odd: true}...]
 function getDigitParity(array) {
-    if (!array.length) return 'ERROR! Invalid data input - please enter an array';
+    if (!Array.isArray(array) || !array.length) return 'ERROR! Invalid data input - please enter an array';
 
     // filter method is added by author decision to omit elements that are not numbers - not necessary and is optional according to the task conditions
     return array.filter(function (elem) {
@@ -102,7 +102,7 @@ console.log('1. New array containing information about each digit and it\'s pari
 
 // 2. Проверить, содержит ли массив [12, 4, 50, 1, 0, 18, 40] элементы, равные нулю. Если да - вернуть false.
 function hasNoZeroElements(array) {
-    if (!array.length) return 'ERROR! Invalid data input - please enter an array';
+    if (!Array.isArray(array) || !array.length) return 'ERROR! Invalid data input - please enter an array';
 
     return array.every(function (elem) {
         return elem !== 0;
@@ -118,7 +118,7 @@ console.log(`2. Entered array does not contain elements that are equal to zero: 
 
 // 3. Проверить, содержит ли массив ['yes', 'hello', 'no', 'easycode', 'what'] хотя бы одно слово длиной больше 3х букв. Если да - вернуть true
 function hasStringLongerThan3(array) {
-    if (!array.length) return 'ERROR! Invalid data input - please enter an array';
+    if (!Array.isArray(array) || !array.length) return 'ERROR! Invalid data input - please enter an array';
 
     return array.filter(function (elem) {
     // omitting elements that are not strings
@@ -140,7 +140,7 @@ console.log(`3. Entered array contains at least one word which length is more th
 // Подсказка: вначале отсортируйте массив по index, затем используйте reduce() для построения
 // строки
 function formStringFromArray(array) {
-    if (!array.length) return 'ERROR! Invalid data input - please enter an array';
+    if (!Array.isArray(array) || !array.length) return 'ERROR! Invalid data input - please enter an array';
 
     return array.sort(function (prev, next) {
         return prev.index - next.index;
@@ -172,7 +172,7 @@ console.log('\nsort method\n'.toUpperCase());
 
 // 1. Отсортируйте массив массивов так, чтобы вначале располагались наименьшие массивы (размер массива определяется его длиной): [  [14, 45],  [1],  ['a', 'c', 'd']  ] → [ [1], [14, 45], ['a', 'c', 'd'] ]
 function sortArrayByLength(array) {
-    if (!array.length) return 'ERROR! Invalid data input - please enter an array';
+    if (!Array.isArray(array) || !array.length) return 'ERROR! Invalid data input - please enter an array';
 
     return array.filter(function (elem) {
     // omitting elements that are not arrays
@@ -194,7 +194,7 @@ console.log('1. Sorted array of arrays: ', sortArrayByLength([[14, 45], [1], ['a
 //     ]
 // Отсортировать их по возрастающему количеству ядер (cores).
 function sortArrayByCores(array) {
-    if (!array.length) return 'ERROR! Invalid data input - please enter an array';
+    if (!Array.isArray(array) || !array.length) return 'ERROR! Invalid data input - please enter an array';
 
     return array.filter(function (elem) {
     // omitting elements that are not objects and objects that don't have 'info.cores' property
@@ -222,7 +222,7 @@ console.log('2. An array sorted by ascending number of cores: \n', sortArrayByCo
 //     ];
 // filterCollection(products, 15, 30) → [{...price: 15}, {...price: 18.9}, {...price: 19}, {...price: 25}]
 function filterCollection(array, minPrice, maxPrice) {
-    if (!array.length || typeof minPrice !== 'number' || typeof maxPrice !== 'number') {
+    if (!Array.isArray(array) || !array.length || typeof minPrice !== 'number' || typeof maxPrice !== 'number') {
         return 'ERROR! Invalid data input - please enter an array of objects and specify minimum and maximum price';
     }
 
@@ -244,4 +244,3 @@ const products = [
     {title: 'prod8', price: 63}
 ];
 console.log('3. An array filtered and sorted by ascending price:\n', filterCollection(products, 15, 30));
-
