@@ -1,0 +1,56 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.page-title {
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 40px;
+    letter-spacing: 0.15em;
+    word-spacing: 0.5em;
+    text-transform: capitalize;
+}
+
+main {
+    background-color: #edeeba;
+    font-family: 'Trebuchet MS', sans-serif;
+    min-height: calc(100vh - 99px);
+}
+
+.table thead {
+    background-color: darkgrey;
+    color: #5600a4;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.table thead td:first-child {
+    width: 70px;
+}
+
+.table thead td:last-child {
+    width: 450px;
+}
+
+.table tbody tr:hover {
+    background-color: #99f9af;
+}
+
+.table tbody td p {
+    color: #a40541;
+    margin: 0;
+}
+
+.table tbody td:last-child a:hover {
+    cursor: pointer;
+}
+
+.table tbody td a {
+    text-decoration: none;
+}
+
+.table .details-list {
+    list-style: none;
+}
