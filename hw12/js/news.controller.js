@@ -18,7 +18,6 @@ function onSelectChange(event) {
 
         uiService.clearContainer();
 
-        // notificationService.removeNotification();
         if (!totalResults) notificationService.addNotification('Статьи не найдены. Измените свой запрос.');
 
         // console.time();
@@ -40,7 +39,6 @@ function onKeyUpHandler(event) {
 
             uiService.clearContainer();
 
-            // notificationService.removeNotification();
             if (!totalResults) notificationService.addNotification('Статьи не найдены. Измените свой запрос.');
 
             // console.time();
