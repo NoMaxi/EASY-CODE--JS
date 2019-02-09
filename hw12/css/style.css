@@ -1,0 +1,13 @@
+.card-notification p {
+    display: flex;
+    align-items: center;
+    color: #1300a4;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-notification .material-icons {
+    color: #c200ff;
+    font-size: 1.9rem;
+    margin-right: 1rem;
+}
