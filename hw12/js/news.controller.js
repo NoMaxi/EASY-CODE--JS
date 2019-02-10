@@ -7,6 +7,7 @@ const form = document.forms['newsControlForm'];
 const countrySelect = form['country'];
 const categorySelect = form['category'];
 
+// Function that handles the events of changing the select input fields
 function onSelectChange(event) {
     const country = countrySelect.value;
     const category = categorySelect.value;
@@ -28,26 +29,29 @@ function onSelectChange(event) {
 
 const searchInput = document.getElementById('search');
 
+// Function that handles the events of entering characters into the
+// search input field
 function onKeyUpHandler(event) {
     const search = searchInput.value;
 
     if (search.length <= 3) {
         console.log('Введите минимум 3 символа для начала живого поиска');
-    } else {
-        newsService.getAllNews(search, (response) => {
-            const { totalResults, articles } = response;
-
-            uiService.clearContainer();
-
-            if (!totalResults) notificationService.addNotification('Статьи не найдены. Измените свой запрос.');
-
-            // console.time();
-            articles.forEach((article) => uiService.addArticle(article));
-            // console.timeEnd();
-
-            console.log(`Найдено ${totalResults} статей`);
-        });
+        return;
     }
+
+    newsService.getAllNews(search, (response) => {
+        const { totalResults, articles } = response;
+
+        uiService.clearContainer();
+
+        if (!totalResults) notificationService.addNotification('Статьи не найдены. Измените свой запрос.');
+
+        // console.time();
+        articles.forEach((article) => uiService.addArticle(article));
+        // console.timeEnd();
+
+        console.log(`Найдено ${totalResults} статей`);
+    });
 }
 
 countrySelect.addEventListener('change', onSelectChange);
