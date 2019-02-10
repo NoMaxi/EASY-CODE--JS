@@ -4,7 +4,7 @@ class NotificationsUI {
     }
 
     /**
-     *
+     * adds the notification to the view
      * @param {String} message
      */
     addNotification(message) {
@@ -12,13 +12,14 @@ class NotificationsUI {
         this.notificationContainer.insertAdjacentHTML('afterbegin', notificationTemplate);
     }
 
+    // method that removes the notification from the view
     removeNotification() {
         const currentNotification = document.querySelector('.card-notification');
         if (currentNotification) this.notificationContainer.removeChild(currentNotification);
     }
 
     /**
-     *
+     * generate a notification template
      * @param {String} message
      */
     static generateNotificationTemplate(message) {
