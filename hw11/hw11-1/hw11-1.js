@@ -55,7 +55,6 @@ class Calculator {
     set value(newValue) {
         if (!isNumber(newValue)) return 'ERROR! Please enter a number as argument';
         this._value = newValue;
-        return this;
     }
 
     add(addend = 0) {
