@@ -36,27 +36,12 @@ prom.then(console.log);
 class Prom {
     constructor() {
         this.promise = new Promise((res, rej) => {
-            this._res = res;
-            this._rej = rej;
+            rejects the promise with entered error (reason)
+            // create method that resolves the promise with entered value
+            this.resolve = res;
+            // create method that rejects the promise with entered reason (error)
+            this.reject = rej;
         });
-    }
-
-    /**
-     * rejects the promise with entered error (reason)
-     * @param {*} error argument passed to the reject callback
-     * @returns {*} the result of promise rejection
-     */
-    reject(error) {
-        this._rej(error);
-    }
-
-    /**
-     * resolves the promise with entered value
-     * @param {*} value argument passed to the resolve callback
-     * @returns {*} the result of promise resolution
-     */
-    resolve(value) {
-        this._res(value);
     }
 }
 
