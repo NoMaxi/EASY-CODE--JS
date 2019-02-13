@@ -36,7 +36,6 @@ prom.then(console.log);
 class Prom {
     constructor() {
         this.promise = new Promise((res, rej) => {
-            rejects the promise with entered error (reason)
             // create method that resolves the promise with entered value
             this.resolve = res;
             // create method that rejects the promise with entered reason (error)
